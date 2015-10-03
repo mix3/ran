@@ -36,7 +36,7 @@ func ListenAndServe(s *http.Server) error {
 
 func (srv *Server) newListener() (net.Listener, error) {
 	listeners, err := listener.ListenAll()
-	if err != nil {
+	if err != nil && err != listener.ErrNoListeningTarget {
 		return nil, err
 	}
 
