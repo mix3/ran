@@ -29,9 +29,7 @@ func Run(addr string, n http.Handler) error {
 		Addr:    addr,
 		Handler: n,
 	}
-	if err := ListenAndServe(svr); err != nil {
-		return err
-	}
+	return ListenAndServe(svr)
 }
 
 func ListenAndServe(s *http.Server) error {
